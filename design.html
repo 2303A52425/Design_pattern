@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Factory Design Pattern</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <header>
+        <h1>Factory Design Pattern</h1>
+        <p>A creational pattern for creating objects without exposing creation logic.</p>
+    </header>
+
+    <section class="content">
+        <h2>What is the Factory Pattern?</h2>
+        <p>
+            The Factory Pattern defines an interface for creating objects,
+            but lets subclasses alter the type of objects that will be created.
+            It helps achieve loose coupling and makes code easier to extend.
+        </p>
+
+        <h2>UML Diagram</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Factory_Method_UML.svg"
+             alt="Factory UML" class="uml"/>
+
+        <h2>JavaScript Example</h2>
+        <pre><code>
+// Product classes
+class Car {
+    drive() { return "Driving a car..."; }
+}
+
+class Truck {
+    drive() { return "Driving a truck..."; }
+}
+
+// Factory
+class VehicleFactory {
+    static createVehicle(type) {
+        if (type === "car") return new Car();
+        if (type === "truck") return new Truck();
+        throw new Error("Unknown vehicle type");
+    }
+}
+
+// Using the factory
+const car = VehicleFactory.createVehicle("car");
+console.log(car.drive());
+        </code></pre>
+
+        <button id="runExample">Run Example</button>
+        <pre id="output"></pre>
+    </section>
+
+    <footer>
+        <p>Factory Pattern Demo Page &copy; 2025</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
